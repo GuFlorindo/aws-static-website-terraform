@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gustavo Florindo Domingues — Cloud, Infraestrutura &amp; Cybersecurity</title>
+  <meta name="description" content="Portfólio de Gustavo Florindo Domingues, profissional de TI em transição para arquitetura de soluções em nuvem. AWS Certified Solutions Architect – Associate.">
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <div class="blueprint-grid" aria-hidden="true"></div>
+ 
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+ 
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#topo">
+        <span class="logo-mark">GD</span><span class="logo-sep">/</span><span class="logo-text">Cloud</span>
+      </a>
+ 
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+ 
+      <nav class="primary-nav" id="primaryNav">
+        <a href="#sobre" data-nav>Sobre</a>
+        <a href="#experiencia" data-nav>Experiência</a>
+        <a href="#formacao" data-nav>Formação</a>
+        <a href="#skills" data-nav>Skills</a>
+        <a href="#projeto" data-nav>Projeto</a>
+        <a href="#contato" class="nav-cta" data-nav>Contato</a>
+      </nav>
+    </div>
+  </header>
+ 
+  <main id="conteudo">
+ 
+    <!-- HERO -->
+    <section class="hero" id="topo">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Junior Solution Architect · Cloud &amp; Infrastructure · Cybersecurity</p>
+          <h1>Gustavo Florindo <span class="hl">Domingues</span></h1>
+          <p class="hero-sub">
+            Profissional de TI com experiência prática em suporte técnico, configuração de sistemas,
+            gestão de acessos e auditoria de TI em ambiente corporativo internacional. Cursando
+            Ciência da Computação na UFABC e membro ativo de um grupo universitário de cybersecurity.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projeto">Ver o projeto</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/gustavo-florindo-domingues" target="_blank" rel="noopener">
+              Perfil no LinkedIn
+            </a>
+          </div>
+ 
+          <ul class="hero-meta">
+            <li><span class="dot dot-ok"></span> Site no ar via S3 + CloudFront + Terraform</li>
+            <li><span class="dot"></span> AWS Certified Solutions Architect – Associate</li>
+            <li><span class="dot"></span> São Bernardo do Campo, SP</li>
+          </ul>
+        </div>
+ 
+        <div class="hero-diagram" aria-label="Diagrama: navegador solicita o site, que passa pelo CloudFront e é servido por um bucket S3">
+          <svg viewBox="0 0 360 420" class="diagram-svg" role="img">
+            <desc>Fluxo de requisição: Browser para CloudFront, CloudFront para bucket S3</desc>
+ 
+            <path class="diagram-line" d="M180 92 L180 152" />
+            <path class="diagram-line" d="M180 232 L180 292" />
+ 
+            <path class="diagram-arrow" d="M174 146 L180 156 L186 146" />
+            <path class="diagram-arrow" d="M174 286 L180 296 L186 286" />
+ 
+            <g class="diagram-node">
+              <rect x="90" y="32" width="180" height="60" rx="4"/>
+              <text x="180" y="57" text-anchor="middle" class="node-title">GET /index.html</text>
+              <text x="180" y="76" text-anchor="middle" class="node-sub">navegador do visitante</text>
+            </g>
+ 
+            <g class="diagram-node diagram-node--accent">
+              <rect x="70" y="152" width="220" height="80" rx="4"/>
+              <text x="180" y="184" text-anchor="middle" class="node-title">Amazon CloudFront</text>
+              <text x="180" y="203" text-anchor="middle" class="node-sub">cache · HTTPS · edge</text>
+              <text x="180" y="220" text-anchor="middle" class="node-tag">CDN</text>
+            </g>
+ 
+            <g class="diagram-node">
+              <rect x="60" y="292" width="240" height="90" rx="4"/>
+              <text x="180" y="324" text-anchor="middle" class="node-title">Bucket S3</text>
+              <text x="180" y="343" text-anchor="middle" class="node-sub">hospedagem estática</text>
+              <text x="180" y="362" text-anchor="middle" class="node-tag">origin</text>
+            </g>
+          </svg>
+          <p class="diagram-caption">provisionado via <code>terraform apply</code></p>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+      <div class="wrap">
+        <p class="section-eyebrow">01 — Sobre</p>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Atuo com suporte técnico, configuração de sistemas e gestão de acessos em um ambiente
+              corporativo internacional, atendendo uma rede de concessionárias e fazendo a ponte com
+              times de suporte na Alemanha. No dia a dia, também executo processos de auditoria de TI,
+              verificando que as operações sigam as políticas e normas estabelecidas.
+            </p>
+            <p>
+              Fora do trabalho, curso Ciência da Computação na UFABC e participo do Green Team Hacker
+              Club, onde estudo criptografia, pentest e participo de competições em desafios de CTF. Esse
+              cruzamento entre operação, segurança e estudo formal é o que está me levando para
+              arquitetura de soluções em nuvem.
+            </p>
+          </div>
+          <dl class="about-stats">
+            <div class="stat">
+              <dt>Atuação atual</dt>
+              <dd>IT Support Technician II — T-Systems do Brasil</dd>
+            </div>
+            <div class="stat">
+              <dt>Formação</dt>
+              <dd>Ciência da Computação — UFABC, em andamento</dd>
+            </div>
+            <div class="stat">
+              <dt>Idiomas</dt>
+              <dd>Português (nativo) · Inglês (avançado)</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- EXPERIÊNCIA -->
+    <section class="section section-alt" id="experiencia">
+      <div class="wrap">
+        <p class="section-eyebrow">02 — Experiência</p>
+        <h2 class="section-title">Trajetória profissional</h2>
+ 
+        <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-dot timeline-dot--current"></span>
+            <p class="timeline-date">Ago 2025 — atual</p>
+            <h3 class="timeline-role">IT Support Technician II</h3>
+            <p class="timeline-org">T-Systems do Brasil · Remoto</p>
+            <ul class="timeline-list">
+              <li>Suporte técnico, instalação e configuração de sistemas para uma rede de concessionárias, garantindo disponibilidade e conformidade com padrões de TI.</li>
+              <li>Gestão de controle de acesso e permissões, fazendo a interface entre usuários finais e o time de suporte alemão na resolução de incidentes.</li>
+              <li>Execução de processos de auditoria de TI e monitoramento de transmissão de dados, com geração de relatórios internos e escalonamento de riscos de SLA.</li>
+              <li>Elaboração de documentação técnica e manuais de usuário em português e inglês.</li>
+            </ul>
+          </li>
+ 
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <p class="timeline-date">Ago 2024 — Ago 2025</p>
+            <h3 class="timeline-role">IT Support Intern</h3>
+            <p class="timeline-org">T-Systems do Brasil · Híbrido, São Bernardo do Campo, SP</p>
+            <ul class="timeline-list">
+              <li>Suporte técnico à rede de concessionárias, diagnosticando e resolvendo problemas de uso de sistema.</li>
+              <li>Produção de instruções técnicas e documentação de onboarding para usuários.</li>
+              <li>Apoio a processos de auditoria e compliance, contribuindo para a melhoria contínua de procedimentos internos.</li>
+            </ul>
+          </li>
+ 
+          <li class="timeline-item">
+            <span class="timeline-dot timeline-dot--accent"></span>
+            <p class="timeline-date">Set 2025 — atual</p>
+            <h3 class="timeline-role">Membro de Cybersecurity</h3>
+            <p class="timeline-org">Green Team Hacker Club · UFABC</p>
+            <ul class="timeline-list">
+              <li>Participação em sessões de estudo sobre criptografia, testes de intrusão e conceitos de segurança da informação.</li>
+              <li>Competições em desafios de CTF (Capture the Flag).</li>
+              <li>Participação em eventos e conferências de cybersecurity.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+ 
+    <!-- FORMAÇÃO -->
+    <section class="section" id="formacao">
+      <div class="wrap">
+        <p class="section-eyebrow">03 — Formação</p>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <p class="edu-period">2024 – 2029 (previsto)</p>
+            <h3>B.Sc. em Ciência da Computação</h3>
+            <p class="edu-org">Universidade Federal do ABC (UFABC) · Santo André, SP</p>
+          </div>
+          <div class="edu-card">
+            <p class="edu-period">2024 – 2028 (previsto)</p>
+            <h3>B.Sc. em Ciência e Tecnologia</h3>
+            <p class="edu-org">Universidade Federal do ABC (UFABC) · Santo André, SP</p>
+          </div>
+          <div class="edu-card">
+            <p class="edu-period">Fev 2022 – Nov 2023</p>
+            <h3>Técnico em Informática para Internet</h3>
+            <p class="edu-org">Senac RS · redes, bancos de dados, fundamentos web</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills">
+      <div class="wrap">
+        <p class="section-eyebrow">04 — Skills</p>
+        <h2 class="section-title">Da operação ao design de arquitetura</h2>
+ 
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Cloud &amp; Infraestrutura</h3>
+            <ul>
+              <li>AWS (SAA &amp; CCP certified)</li>
+              <li>Configuração de sistemas</li>
+              <li>Gestão de acessos</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Cybersecurity</h3>
+            <ul>
+              <li>Criptografia</li>
+              <li>Fundamentos de pentest</li>
+              <li>CTF (Capture the Flag)</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Redes</h3>
+            <ul>
+              <li>Fundamentos de TCP/IP</li>
+              <li>Transmissão de dados</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Documentação</h3>
+            <ul>
+              <li>Documentação técnica (PT &amp; EN)</li>
+              <li>Manuais de usuário</li>
+              <li>Relatórios de KPIs</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Scripting</h3>
+            <ul>
+              <li>Python</li>
+              <li>Bash básico</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- CERTIFICAÇÕES -->
+    <section class="section" id="certificacoes">
+      <div class="wrap">
+        <p class="section-eyebrow">05 — Certificações</p>
+        <div class="cert-grid">
+          <a class="cert-card" href="https://www.credly.com/badges/3b9e9b09-7f30-42b2-b7cf-28253b32a6e8" target="_blank" rel="noopener">
+            <span class="cert-code">SAA-C03</span>
+            <span class="cert-name">AWS Certified Solutions Architect – Associate</span>
+            <span class="cert-date">Emitida mai/2026 · Válida até mai/2029</span>
+            <span class="cert-verify">Verificar credencial →</span>
+          </a>
+          <a class="cert-card" href="https://www.credly.com/badges/369c6b21-51e8-4481-b05d-d18761aa9782" target="_blank" rel="noopener">
+            <span class="cert-code">CLF-C02</span>
+            <span class="cert-name">AWS Certified Cloud Practitioner</span>
+            <span class="cert-date">Emitida jun/2025 · Válida até jun/2028</span>
+            <span class="cert-verify">Verificar credencial →</span>
+          </a>
+          <a class="cert-card" href="https://www.credly.com/badges/52804669-5539-4864-ace7-c1dacf8269f1" target="_blank" rel="noopener">
+            <span class="cert-code">CISCO</span>
+            <span class="cert-name">Introduction to Cybersecurity</span>
+            <span class="cert-date">Emitida set/2025</span>
+            <span class="cert-verify">Verificar credencial →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- PROJETO EM DESTAQUE -->
+    <section class="section section-alt" id="projeto">
+      <div class="wrap">
+        <p class="section-eyebrow">06 — Projeto em destaque</p>
+        <h2 class="section-title">Este site: infraestrutura como código</h2>
+        <p class="section-lead">
+          Nada de upload manual: o bucket, as permissões e a configuração de hospedagem estática
+          foram declarados em Terraform e sobem com um único comando.
+        </p>
+        <ul class="project-links">
+          <li><a href="https://github.com/GuFlorindo" target="_blank" rel="noopener">Repositório no GitHub ↗</a></li>
+          <li><a href="gustavofd-portfolio-2026.s3-website-us-east-1.amazonaws.com" target="_blank" rel="noopener">Site em produção ↗</a></li>
+        </ul>
+      </div>
+    </section>
+ 
+  </main>
+ 
+  <footer class="site-footer" id="contato">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-title">Vamos conversar</p>
+        <p class="footer-sub">Aberto a oportunidades em suporte de TI, cloud e infraestrutura.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:Gufdomi2@gmail.com">Gufdomi2@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/gustavo-florindo-domingues" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="#" target="https://github.com/GuFlorindo" rel="noopener">GitHub ↗</a></li>
+      </ul>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© <span id="year"></span> Gustavo Florindo Domingues. Hospedado em S3, provisionado com Terraform.</p>
+    </div>
+  </footer>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 
