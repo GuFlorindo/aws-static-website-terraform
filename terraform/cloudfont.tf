@@ -14,7 +14,7 @@ resource "aws_cloudfront_distribution" "portfolio" {
       origin_access_identity = ""
     }
 
-   }
+  }
 
   default_cache_behavior {
 
