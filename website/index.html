@@ -65,43 +65,9 @@
           <ul class="hero-meta">
             <li><span class="dot dot-ok"></span> Site no ar via S3 + CloudFront + Terraform</li>
             <li><span class="dot"></span> AWS Certified Solutions Architect – Associate</li>
-            <li><span class="dot"></span> São Bernardo do Campo, SP</li>
+            <li><span class="dot"></span> CI utilizando Github Actions</li>
           </ul>
         </div>
- 
-        <div class="hero-diagram" aria-label="Diagrama: navegador solicita o site, que passa pelo CloudFront e é servido por um bucket S3">
-          <svg viewBox="0 0 360 420" class="diagram-svg" role="img">
-            <desc>Fluxo de requisição: Browser para CloudFront, CloudFront para bucket S3</desc>
- 
-            <path class="diagram-line" d="M180 92 L180 152" />
-            <path class="diagram-line" d="M180 232 L180 292" />
- 
-            <path class="diagram-arrow" d="M174 146 L180 156 L186 146" />
-            <path class="diagram-arrow" d="M174 286 L180 296 L186 286" />
- 
-            <g class="diagram-node">
-              <rect x="90" y="32" width="180" height="60" rx="4"/>
-              <text x="180" y="57" text-anchor="middle" class="node-title">GET /index.html</text>
-              <text x="180" y="76" text-anchor="middle" class="node-sub">navegador do visitante</text>
-            </g>
- 
-            <g class="diagram-node diagram-node--accent">
-              <rect x="70" y="152" width="220" height="80" rx="4"/>
-              <text x="180" y="184" text-anchor="middle" class="node-title">Amazon CloudFront</text>
-              <text x="180" y="203" text-anchor="middle" class="node-sub">cache · HTTPS · edge</text>
-              <text x="180" y="220" text-anchor="middle" class="node-tag">CDN</text>
-            </g>
- 
-            <g class="diagram-node">
-              <rect x="60" y="292" width="240" height="90" rx="4"/>
-              <text x="180" y="324" text-anchor="middle" class="node-title">Bucket S3</text>
-              <text x="180" y="343" text-anchor="middle" class="node-sub">hospedagem estática</text>
-              <text x="180" y="362" text-anchor="middle" class="node-tag">origin</text>
-            </g>
-          </svg>
-          <p class="diagram-caption">provisionado via <code>terraform apply</code></p>
-        </div>
-      </div>
     </section>
  
     <!-- SOBRE -->
@@ -294,7 +260,7 @@
         <p class="section-eyebrow">06 — Projeto em destaque</p>
         <h2 class="section-title">Este site: infraestrutura como código</h2>
         <p class="section-lead">
-          Nada de upload manual: o bucket, as permissões e a configuração de hospedagem estática
+          Nada de upload manual: o bucket, as permissões e a configuração de hospedagem
           foram declarados em Terraform e sobem com um único comando.
         </p>
         <ul class="project-links">

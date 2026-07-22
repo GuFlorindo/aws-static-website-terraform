@@ -257,90 +257,6 @@ code { font-family: var(--font-mono); }
 }
 .dot-ok { background: var(--ok); box-shadow: 0 0 0 3px rgba(89, 201, 165, 0.25); }
  
-/* ---- diagrama SVG ---- */
-.hero-diagram { text-align: center; }
-.diagram-svg { width: 100%; max-width: 360px; height: auto; }
- 
-.diagram-node rect {
-  fill: var(--ink-2);
-  stroke: var(--line);
-  stroke-width: 1.2;
-}
-.diagram-node--accent rect {
-  fill: var(--ink-3);
-  stroke: var(--signal);
-}
-.node-title {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  fill: var(--paper);
-  font-weight: 500;
-}
-.node-sub {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  fill: var(--paper-dim);
-}
-.node-tag {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  fill: var(--signal);
-  letter-spacing: 0.08em;
-}
- 
-.diagram-line {
-  fill: none;
-  stroke: var(--line);
-  stroke-width: 1.5;
-  stroke-dasharray: 140;
-  stroke-dashoffset: 140;
-}
-.diagram-arrow {
-  fill: none;
-  stroke: var(--line);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0;
-}
-.diagram-node {
-  opacity: 0;
-  transform: translateY(6px);
-}
- 
-/* animação disparada via JS adicionando .is-drawn ao SVG */
-.diagram-svg.is-drawn .diagram-line {
-  animation: draw-line 0.7s ease forwards;
-}
-.diagram-svg.is-drawn .diagram-arrow {
-  animation: fade-in 0.3s ease forwards;
-  animation-delay: 0.65s;
-}
-.diagram-svg.is-drawn .diagram-node {
-  animation: node-in 0.5s ease forwards;
-}
-.diagram-svg.is-drawn .diagram-node:nth-of-type(1) { animation-delay: 0s; }
-.diagram-svg.is-drawn .diagram-node:nth-of-type(2) { animation-delay: 0.55s; }
-.diagram-svg.is-drawn .diagram-node:nth-of-type(3) { animation-delay: 1.1s; }
-.diagram-svg.is-drawn .diagram-line:nth-of-type(1) { animation-delay: 0.35s; }
-.diagram-svg.is-drawn .diagram-line:nth-of-type(2) { animation-delay: 0.9s; }
-.diagram-svg.is-drawn .diagram-arrow:nth-of-type(3) { animation-delay: 0.35s; }
-.diagram-svg.is-drawn .diagram-arrow:nth-of-type(4) { animation-delay: 0.9s; }
- 
-@keyframes draw-line { to { stroke-dashoffset: 0; } }
-@keyframes fade-in { to { opacity: 1; } }
-@keyframes node-in { to { opacity: 1; transform: translateY(0); } }
- 
-.diagram-caption {
-  margin-top: 18px;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--paper-dim);
-}
-.diagram-caption code {
-  color: var(--line);
-}
- 
 /* ============================================================
    SEÇÕES GERAIS
    ============================================================ */
@@ -653,7 +569,6 @@ code { font-family: var(--font-mono); }
    ============================================================ */
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-diagram { order: -1; max-width: 280px; margin: 0 auto 12px; }
   .about-grid { grid-template-columns: 1fr; }
   .about-stats { border-left: none; padding-left: 0; border-top: 1px solid var(--ink-3); padding-top: 20px; }
   .skills-grid { grid-template-columns: 1fr; }

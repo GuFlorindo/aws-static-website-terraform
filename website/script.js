@@ -76,21 +76,7 @@
   } else {
     revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
   }
- 
-  /* --------------------------------------------------------
-     Desenha o diagrama do hero uma única vez
-  -------------------------------------------------------- */
-  var diagramSvg = document.querySelector(".diagram-svg");
-  if (diagramSvg) {
-    if (reduceMotion) {
-      diagramSvg.classList.add("is-drawn");
-    } else {
-      window.requestAnimationFrame(function () {
-        setTimeout(function () { diagramSvg.classList.add("is-drawn"); }, 200);
-      });
-    }
-  }
- 
+
   /* --------------------------------------------------------
      Botão "copiar" do bloco de código Terraform
   -------------------------------------------------------- */
@@ -133,87 +119,6 @@
     document.body.removeChild(textarea);
     onDone();
   }
- 
-  /* --------------------------------------------------------
-     Efeito de "terminal" para simular a saída do terraform apply
-  -------------------------------------------------------- */
-  var terminalOutput = document.getElementById("terminalOutput");
- 
-  var terminalLines = [
-    { text: "$ terraform apply", accent: true },
-    { text: "" },
-    { text: "aws_s3_bucket.portfolio: Creating..." },
-    { text: "aws_s3_bucket.portfolio: Creation complete after 1s" },
-    { text: "aws_s3_bucket_website_configuration.portfolio: Creating..." },
-    { text: "aws_s3_bucket_website_configuration.portfolio: Creation complete after 1s" },
-    { text: "aws_s3_bucket_policy.public_read: Creating..." },
-    { text: "aws_s3_bucket_policy.public_read: Creation complete after 1s" },
-    { text: "" },
-    { text: "Apply complete! Resources: 4 added, 0 changed, 0 destroyed.", ok: true }
-  ];
- 
-  function typeTerminal() {
-    if (!terminalOutput || terminalOutput.dataset.played === "true") return;
-    terminalOutput.dataset.played = "true";
- 
-    if (reduceMotion) {
-      terminalOutput.textContent = terminalLines.map(function (l) { return l.text; }).join("\n");
-      return;
-    }
- 
-    var lineIndex = 0;
-    var charIndex = 0;
-    var cursor = document.createElement("span");
-    cursor.className = "cursor";
- 
-    function typeChar() {
-      var line = terminalLines[lineIndex];
-      if (!line) {
-        terminalOutput.appendChild(cursor);
-        return;
-      }
- 
-      if (charIndex === 0) {
-        var lineEl = document.createElement("div");
-        lineEl.className = line.accent ? "accent" : line.ok ? "ok" : "";
-        lineEl.textContent = "";
-        terminalOutput.appendChild(lineEl);
-      }
- 
-      var currentLineEl = terminalOutput.lastChild;
-      currentLineEl.textContent = line.text.slice(0, charIndex + 1);
-      charIndex++;
- 
-      if (charIndex <= line.text.length) {
-        setTimeout(typeChar, line.text.length === 0 ? 40 : 14);
-      } else {
-        lineIndex++;
-        charIndex = 0;
-        setTimeout(typeChar, 90);
-      }
-    }
- 
-    typeChar();
-  }
- 
-  var terminalSection = document.getElementById("projeto");
-  if (terminalSection && "IntersectionObserver" in window) {
-    var terminalObserver = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            typeTerminal();
-            obs.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    terminalObserver.observe(terminalSection);
-  } else {
-    typeTerminal();
-  }
- 
   /* --------------------------------------------------------
      Ano no rodapé
   -------------------------------------------------------- */
