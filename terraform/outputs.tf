@@ -1,9 +1,11 @@
-output "website_url" {
-  description = "URL do site estático"
+output "cloudfront_url" {
+  description = "URL da distribuição CloudFront"
 
-  value = aws_s3_bucket_website_configuration.website.website_endpoint
+  value = "https://${aws_cloudfront_distribution.portfolio.domain_name}"
 }
 
-output "cloudfront_url" {
-  value = "https://${aws_cloudfront_distribution.portfolio.domain_name}"
+output "bucket_name" {
+  description = "Nome do bucket S3"
+
+  value = aws_s3_bucket.portfolio.bucket
 }

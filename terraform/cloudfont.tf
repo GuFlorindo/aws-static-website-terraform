@@ -3,19 +3,18 @@ resource "aws_cloudfront_distribution" "portfolio" {
   enabled = true
 
   origin {
-    domain_name = aws_s3_bucket_website_configuration.website.website_endpoint
-    origin_id   = "portfolio-s3"
 
-    custom_origin_config {
-      http_port              = 80
-      https_port             = 443
-      origin_protocol_policy = "http-only"
+    domain_name = aws_s3_bucket.portfolio.bucket_regional_domain_name
 
-      origin_ssl_protocols = [
-        "TLSv1.2"
-      ]
+    origin_id = "portfolio-s3"
+
+    origin_access_control_id = aws_cloudfront_origin_access_control.portfolio.id
+
+    s3_origin_config {
+      origin_access_identity = ""
     }
-  }
+
+   }
 
   default_cache_behavior {
 

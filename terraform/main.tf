@@ -3,18 +3,6 @@ resource "aws_s3_bucket" "portfolio" {
 
 }
 
-resource "aws_s3_bucket_website_configuration" "website" {
-  bucket = aws_s3_bucket.portfolio.id
-
-  index_document {
-    suffix = "index.html"
-  }
-
-  error_document {
-    key = "index.html"
-  }
-}
-
 resource "aws_s3_object" "index" {
   bucket = aws_s3_bucket.portfolio.id
 
@@ -54,30 +42,57 @@ resource "aws_s3_object" "script" {
 resource "aws_s3_bucket_public_access_block" "portfolio" {
   bucket = aws_s3_bucket.portfolio.id
 
-  block_public_acls       = false
-  ignore_public_acls      = false
-  block_public_policy     = false
-  restrict_public_buckets = false
+  block_public_acls       = true
+  ignore_public_acls      = true
+  block_public_policy     = true
+  restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket_versioning" "portfolio" {
+  bucket = aws_s3_bucket.portfolio.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_cloudfront_origin_access_control" "portfolio" {
+
+  name = "portfolio-oac"
+
+  description = "Origin Access Control for S3"
+
+  origin_access_control_origin_type = "s3"
+
+  signing_behavior = "always"
+
+  signing_protocol = "sigv4"
 }
 
 resource "aws_s3_bucket_policy" "portfolio" {
   bucket = aws_s3_bucket.portfolio.id
-
-  depends_on = [
-    aws_s3_bucket_public_access_block.portfolio
-  ]
 
   policy = jsonencode({
     Version = "2012-10-17"
 
     Statement = [
       {
-        Sid       = "PublicRead"
-        Effect    = "Allow"
-        Principal = "*"
-        Action    = "s3:GetObject"
+        Sid    = "AllowCloudFrontRead"
+        Effect = "Allow"
+
+        Principal = {
+          Service = "cloudfront.amazonaws.com"
+        }
+
+        Action = "s3:GetObject"
 
         Resource = "${aws_s3_bucket.portfolio.arn}/*"
+
+        Condition = {
+          StringEquals = {
+            "AWS:SourceArn" = aws_cloudfront_distribution.portfolio.arn
+          }
+        }
       }
     ]
   })
